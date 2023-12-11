@@ -26,6 +26,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   auto_size_text: 3.0.0
+  badges: 2.0.2
   cached_network_image: 3.2.1
   equatable: 2.0.5
   firebase_auth: 4.6.2
@@ -68,6 +69,7 @@ dependencies:
   sign_in_with_apple_platform_interface: 1.0.0
   sign_in_with_apple_web: 1.0.1
   sqflite: 2.2.6
+  sticky_headers: 0.3.0+2
   timeago: 3.2.2
   url_launcher: 6.1.10
   url_launcher_android: 6.0.27

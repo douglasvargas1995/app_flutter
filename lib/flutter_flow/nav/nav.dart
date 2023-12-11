@@ -77,15 +77,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? ListagemBannersWidget() : LoginWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? CardsBannersWidget()
+          : LoginMasterWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? ListagemBannersWidget()
-              : LoginWidget(),
+              ? CardsBannersWidget()
+              : LoginMasterWidget(),
         ),
         FFRoute(
           name: 'Login',
@@ -101,7 +102,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'bannerDetail',
           path: '/bannerDetail',
           builder: (context, params) => BannerDetailWidget(
-            produtoid: params.getParam('produtoid', ParamType.int),
+            id: params.getParam('id', ParamType.int),
           ),
         ),
         FFRoute(
@@ -113,6 +114,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'addBanner',
           path: '/addBanner',
           builder: (context, params) => AddBannerWidget(),
+        ),
+        FFRoute(
+          name: 'loginMaster',
+          path: '/loginMaster',
+          builder: (context, params) => LoginMasterWidget(),
+        ),
+        FFRoute(
+          name: 'paginaInicial',
+          path: '/paginaInicial',
+          builder: (context, params) => PaginaInicialWidget(),
+        ),
+        FFRoute(
+          name: 'cardsBanners',
+          path: '/cardsBanners',
+          builder: (context, params) => CardsBannersWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -281,7 +297,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/login';
+            return '/loginMaster';
           }
           return null;
         },

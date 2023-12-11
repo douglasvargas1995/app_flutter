@@ -13,10 +13,10 @@ export 'banner_detail_model.dart';
 class BannerDetailWidget extends StatefulWidget {
   const BannerDetailWidget({
     Key? key,
-    required this.produtoid,
+    required this.id,
   }) : super(key: key);
 
-  final int? produtoid;
+  final int? id;
 
   @override
   _BannerDetailWidgetState createState() => _BannerDetailWidgetState();
@@ -53,7 +53,7 @@ class _BannerDetailWidgetState extends State<BannerDetailWidget> {
 
     return FutureBuilder<ApiCallResponse>(
       future: VerBannerCall.call(
-        id: widget.produtoid,
+        id: widget.id,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -99,9 +99,7 @@ class _BannerDetailWidgetState extends State<BannerDetailWidget> {
                 },
               ),
               title: Text(
-                'Detalhes do Banner #${VerBannerCall.id(
-                  bannerDetailVerBannerResponse.jsonBody,
-                ).toString()}',
+                'Detalhes do Banner',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
@@ -162,7 +160,10 @@ class _BannerDetailWidgetState extends State<BannerDetailWidget> {
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                         child: Image.network(
-                                          'https://telhafer.com.br/image/no_image.jpg',
+                                          'http://177.44.248.68/app/${VerBannerCall.foto(
+                                            bannerDetailVerBannerResponse
+                                                .jsonBody,
+                                          ).toString()}',
                                           width: double.infinity,
                                           height: 230.0,
                                           fit: BoxFit.cover,

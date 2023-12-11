@@ -84,7 +84,7 @@ class _ListagemBannersWidgetState extends State<ListagemBannersWidget> {
               await authManager.signOut();
               GoRouter.of(context).clearRedirectLocation();
 
-              context.goNamedAuth('Login', context.mounted);
+              context.goNamedAuth('loginMaster', context.mounted);
             },
           ),
           title: Text(
@@ -151,118 +151,94 @@ class _ListagemBannersWidgetState extends State<ListagemBannersWidget> {
                                 return Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 12.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'bannerDetail',
-                                        queryParameters: {
-                                          'produtoid': serializeParam(
-                                            getJsonField(
-                                              bannersItem,
-                                              r'''$.id''',
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.45,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          4.0, 4.0, 4.0, 12.0),
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 12.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                                child: Image.network(
+                                                  'http://177.44.248.68/app/${getJsonField(
+                                                    bannersItem,
+                                                    r'''$.foto''',
+                                                  ).toString()}',
+                                                  width: double.infinity,
+                                                  height: 120.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
                                             ),
-                                            ParamType.int,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.45,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 4.0, 4.0, 12.0),
-                                        child: SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 12.0),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  child: Image.network(
-                                                    'http://177.44.248.68/app/${getJsonField(
-                                                      bannersItem,
-                                                      r'''$.foto''',
-                                                    ).toString()}',
-                                                    width: double.infinity,
-                                                    height: 120.0,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                '${getJsonField(
+                                                  bannersItem,
+                                                  r'''$.descricao''',
+                                                ).toString()}- #${getJsonField(
+                                                  bannersItem,
+                                                  r'''$.id''',
+                                                ).toString()}',
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF14181B),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '${getJsonField(
-                                                    bannersItem,
-                                                    r'''$.descricao''',
-                                                  ).toString()}- #${getJsonField(
-                                                    bannersItem,
-                                                    r'''$.id''',
-                                                  ).toString()}',
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            Color(0xFF14181B),
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 4.0, 0.0, 0.0),
+                                              child: Text(
+                                                'Localização${getJsonField(
+                                                  bannersItem,
+                                                  r'''$.latitude''',
+                                                ).toString()}-${getJsonField(
+                                                  bannersItem,
+                                                  r'''$.longitude''',
+                                                ).toString()}',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF57636C),
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  'Localização${getJsonField(
-                                                    bannersItem,
-                                                    r'''$.latitude''',
-                                                  ).toString()}-${getJsonField(
-                                                    bannersItem,
-                                                    r'''$.longitude''',
-                                                  ).toString()}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            Color(0xFF57636C),
-                                                        fontSize: 12.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),

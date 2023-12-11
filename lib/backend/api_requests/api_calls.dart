@@ -136,6 +136,24 @@ class CriarBannerCall {
   }
 }
 
+class VerPostagensCall {
+  static Future<ApiCallResponse> call({
+    int? bannerId,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'verPostagens',
+      apiUrl: 'http://177.44.248.68/app/postagem/',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
