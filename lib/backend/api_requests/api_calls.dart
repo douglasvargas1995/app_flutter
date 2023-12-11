@@ -144,7 +144,10 @@ class VerPostagensCall {
       callName: 'verPostagens',
       apiUrl: 'http://177.44.248.68/app/postagem/',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Authorization':
+            'Basic 16a4f6bdf46bfb392fbb4788bf6c3c9df3ae7fd49acb79205627d6363706',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -152,6 +155,11 @@ class VerPostagensCall {
       cache: false,
     );
   }
+
+  static dynamic dados(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
 }
 
 class ApiPagingParams {

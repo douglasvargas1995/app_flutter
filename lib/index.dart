@@ -9,3 +9,5 @@ export '/menu/login_master/login_master_widget.dart' show LoginMasterWidget;
 export '/pages/inicio/pagina_inicial/pagina_inicial_widget.dart'
     show PaginaInicialWidget;
 export '/pages/cards_banners/cards_banners_widget.dart' show CardsBannersWidget;
+export '/postagens/listagem_postagens/listagem_postagens_widget.dart'
+    show ListagemPostagensWidget;

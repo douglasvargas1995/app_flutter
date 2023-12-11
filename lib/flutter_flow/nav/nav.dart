@@ -129,6 +129,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'cardsBanners',
           path: '/cardsBanners',
           builder: (context, params) => CardsBannersWidget(),
+        ),
+        FFRoute(
+          name: 'listagemPostagens',
+          path: '/listagemPostagens',
+          builder: (context, params) => ListagemPostagensWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
