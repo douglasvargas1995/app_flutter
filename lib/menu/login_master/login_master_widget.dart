@@ -402,6 +402,8 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
+                                                                  fontSize:
+                                                                      18.0,
                                                                 ),
                                                         keyboardType:
                                                             TextInputType
@@ -522,6 +524,8 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
+                                                                  fontSize:
+                                                                      18.0,
                                                                 ),
                                                         keyboardType:
                                                             TextInputType
@@ -666,6 +670,8 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
+                                                                  fontSize:
+                                                                      18.0,
                                                                 ),
                                                         validator: _model
                                                             .passwordControllerValidator
@@ -808,6 +814,8 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
+                                                                  fontSize:
+                                                                      18.0,
                                                                 ),
                                                         validator: _model
                                                             .confirmpasswordControllerValidator
@@ -1170,7 +1178,13 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelLarge,
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        18.0,
+                                                                  ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
@@ -1249,6 +1263,8 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
+                                                                  fontSize:
+                                                                      12.0,
                                                                 ),
                                                         keyboardType:
                                                             TextInputType
@@ -1284,7 +1300,13 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelLarge,
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        18.0,
+                                                                  ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
@@ -1376,10 +1398,14 @@ class _LoginMasterWidgetState extends State<LoginMasterWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLarge,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 12.0,
+                                                            ),
                                                         validator: _model
                                                             .txsenhaControllerValidator
                                                             .asValidator(
