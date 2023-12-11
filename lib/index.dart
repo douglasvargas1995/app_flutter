@@ -1,5 +1,4 @@
 // Export pages
-export '/login/login_widget.dart' show LoginWidget;
 export '/listagem_banners/listagem_banners_widget.dart'
     show ListagemBannersWidget;
 export '/banner_detail/banner_detail_widget.dart' show BannerDetailWidget;

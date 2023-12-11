@@ -230,7 +230,15 @@ class _BannerDetailWidgetState extends State<BannerDetailWidget> {
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed('listagemPostagens');
+                                context.pushNamed(
+                                  'listagemPostagens',
+                                  queryParameters: {
+                                    'bannerid': serializeParam(
+                                      0,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               text: 'Posts',
                               options: FFButtonOptions(

@@ -12,7 +12,12 @@ import 'listagem_postagens_model.dart';
 export 'listagem_postagens_model.dart';
 
 class ListagemPostagensWidget extends StatefulWidget {
-  const ListagemPostagensWidget({Key? key}) : super(key: key);
+  const ListagemPostagensWidget({
+    Key? key,
+    required this.bannerid,
+  }) : super(key: key);
+
+  final int? bannerid;
 
   @override
   _ListagemPostagensWidgetState createState() =>

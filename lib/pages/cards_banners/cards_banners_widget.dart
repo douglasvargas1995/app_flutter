@@ -103,14 +103,16 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                         ),
                       ),
                       Expanded(
-                        child: Text(
-                          'Bem Vindo, ${currentUserEmail}',
-                          style: FlutterFlowTheme.of(context)
-                              .headlineMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                fontSize: 10.0,
-                              ),
+                        child: AuthUserStreamWidget(
+                          builder: (context) => Text(
+                            'Bem Vindo, ${currentUserDisplayName}',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  fontSize: 15.0,
+                                ),
+                          ),
                         ),
                       ),
                       Padding(
@@ -215,11 +217,20 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Icon(
-                                Icons.search_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('cardsBanners');
+                                },
+                                child: Icon(
+                                  Icons.search_rounded,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
+                                ),
                               ),
                               Expanded(
                                 child: Padding(
@@ -416,6 +427,21 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                                   ),
                                                 ),
                                               ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.network(
+                                                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60',
+                                                    width: double.infinity,
+                                                    height: double.infinity,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -424,7 +450,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
-                                            'Beach Name',
+                                            'Banner Teste',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge,
                                           ),
@@ -440,7 +466,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: '\$421',
+                                                  text: 'R\$ 10,00',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -448,7 +474,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                                   ),
                                                 ),
                                                 TextSpan(
-                                                  text: ' /night',
+                                                  text: ' /hora',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelSmall,
@@ -492,16 +518,6 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                         Expanded(
                                           child: Stack(
                                             children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60',
-                                                  width: double.infinity,
-                                                  height: double.infinity,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
                                               Align(
                                                 alignment: AlignmentDirectional(
                                                     1.00, -1.00),
@@ -587,7 +603,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
-                                            'Beach Name',
+                                            'Banner Teste',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge,
                                           ),
@@ -603,7 +619,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: '\$421',
+                                                  text: 'R\$ 10,00',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -611,7 +627,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                                   ),
                                                 ),
                                                 TextSpan(
-                                                  text: ' /night',
+                                                  text: ' /hora',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelSmall,
@@ -750,7 +766,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
-                                            'Beach Name',
+                                            'Banner Teste',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge,
                                           ),
@@ -766,7 +782,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: '\$421',
+                                                  text: 'R\$ 10,00',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -774,7 +790,7 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                                   ),
                                                 ),
                                                 TextSpan(
-                                                  text: ' /night',
+                                                  text: ' /hora',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelSmall,
@@ -914,23 +930,29 @@ class _CardsBannersWidgetState extends State<CardsBannersWidget> {
                                                       Expanded(
                                                         child: Stack(
                                                           children: [
-                                                            ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child:
-                                                                  Image.network(
-                                                                'http://177.44.248.68/app/${getJsonField(
-                                                                  dadosItem,
-                                                                  r'''$.foto''',
-                                                                ).toString()}',
-                                                                width: double
-                                                                    .infinity,
-                                                                height: double
-                                                                    .infinity,
-                                                                fit: BoxFit
-                                                                    .cover,
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.00,
+                                                                      0.00),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  'http://177.44.248.68/app/${getJsonField(
+                                                                    dadosItem,
+                                                                    r'''$.foto''',
+                                                                  ).toString()}',
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: double
+                                                                      .infinity,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
                                                               ),
                                                             ),
                                                             Align(

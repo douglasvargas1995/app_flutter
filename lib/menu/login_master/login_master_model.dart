@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -21,6 +22,10 @@ class LoginMasterModel extends FlutterFlowModel<LoginMasterWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
+  // State field(s) for nameDisplay widget.
+  FocusNode? nameDisplayFocusNode;
+  TextEditingController? nameDisplayController;
+  String? Function(BuildContext, String?)? nameDisplayControllerValidator;
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressController;
@@ -56,6 +61,9 @@ class LoginMasterModel extends FlutterFlowModel<LoginMasterWidget> {
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();
+    nameDisplayFocusNode?.dispose();
+    nameDisplayController?.dispose();
+
     emailAddressFocusNode?.dispose();
     emailAddressController?.dispose();
 
